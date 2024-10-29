@@ -99,3 +99,103 @@
   .rss-plan-item:hover {
     text-decoration: none !important;
   }
+  
+  .subscription-form {
+    width: 100%;
+    max-width: 100%;
+    margin: 2rem 0;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .subscription-form-inner {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .input-group {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  
+  .email-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .email-input:focus {
+    outline: none;
+    border-color: #3498db;
+  }
+  
+  .icon-mail {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-button:hover {
+    background-color: #2980b9;
+  }
+  
+  .submit-button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
+  
+  .message {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  .message.success {
+    color: #27ae60;
+  }
+  
+  .message.error {
+    color: #e74c3c;
+  }
+  
+  /* 响应式设计 */
+  @media (max-width: 768px) {
+    .subscription-form {
+      padding: 1.5rem;
+    }
+  
+    .form-title {
+      font-size: 1.25rem;
+    }
+  
+    .email-input, .submit-button {
+      font-size: 0.9rem;
+    }
+  }
