@@ -1,7 +1,4 @@
-#post .tag_share + #follow {
-    margin-top: 40px;
-  }
-  .rss-plan-list {
+ .rss-plan-list {
     display: flex;
     width: 100%;
     flex-direction: row;
