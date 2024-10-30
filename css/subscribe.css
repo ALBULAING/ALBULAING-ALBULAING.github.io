@@ -199,3 +199,91 @@
       font-size: 0.9rem;
     }
   }
+  /* 文章中的订阅表单样式 */
+.article-subscribe-form {
+  width: 100%;
+  padding: 24px;
+  background: var(--icat-background);
+  border-radius: 12px;
+  border: var(--style-border);
+  box-shadow: var(--icat-shadow-border);
+  margin: 20px 0;
+}
+
+.article-subscribe-form .form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.article-subscribe-form .form-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--icat-fontcolor);
+}
+
+.article-subscribe-form .follow-logo {
+  height: 25px;
+  opacity: 0.8;
+}
+
+.article-subscribe-form .input-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.article-subscribe-form input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 2px solid var(--icat-card-border);
+  border-radius: 6px;
+  background: var(--icat-secondbg);
+  color: var(--icat-fontcolor);
+  font-size: 14px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.article-subscribe-form input:focus {
+  border-color: var(--icat-theme);
+  outline: none;
+}
+
+.article-subscribe-form button {
+  width: 100%;
+  height: 42px;
+  background: var(--icat-black);
+  color: var(--icat-white);
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.article-subscribe-form button:hover {
+  background: var(--icat-blue);
+}
+
+/* 响应式适配 */
+@media screen and (max-width: 768px) {
+  .article-subscribe-form {
+    padding: 16px;
+  }
+  
+  .article-subscribe-form .form-title {
+    font-size: 16px;
+  }
+  
+  .article-subscribe-form input {
+    height: 40px;
+  }
+  
+  .article-subscribe-form button {
+    height: 38px;
+  }
+}
