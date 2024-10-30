@@ -8330,7 +8330,7 @@ body[data-type=music] #nav-music {
 }
 @media screen and (max-width: 1300px) {
   #about-page .author-content-item.selfInfo {
-    height: 70%;
+    height: 100% !important;
   }
 }
 #about-page .author-content-item.selfInfo div {
