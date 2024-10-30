@@ -1,0 +1,400 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Cookie | 阿凉の杂货铺</title><noscript>开启JavaScript才能访问本站哦~</noscript><link rel="icon" href="https://p3-sign.toutiaoimg.com/tos-cn-i-eyfl5e3fp8/06000314bbb442aa957c1b8341b38b08~tplv-obj.image?lk3s=993df49e&amp;traceid=202406112232080CA94B4FDFD59CB5DFD1&amp;x-expires=2147483647&amp;x-signature=wba9jY38UB81dZy7jSZO2vOQr4A%3D"><!-- index.css--><link rel="stylesheet" href="/css/index.css?v=1.13.4"><!-- inject head--><link rel="canonical" href="https://blog.coolspace.cc/cookies/"><link rel="stylesheet" href="https://cdn2.codesign.qq.com/icons/7pOrz0WXB5ZWJPX/latest/iconfont.css"><!-- aplayer--><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css"><!-- swiper--><!-- fancybox ui--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.min.css"><!-- katex--><!-- Open Graph--><meta name="description" content="更新时间 2024年8月11日 Cookie为了确保网站和我开发的软件的可靠性、安全性和个性化，我使用 Cookies。当你接受 Cookies 时，这有助于通过识别你的身份、记住你的偏好或提供个性化用户体验来帮助我改善网站。 本政策应与我的隐私政策一起阅读，该隐私政策解释了我如何使用个人信息。"><!-- pwa--><meta name="theme-color" content="#006a73"><meta name="apple-mobile-web-app-status-bar-style" content="#006a73"><link rel="manifest" href="/manifest.json"><meta name="msapplication-TileColor" content="#006a73"><link rel="mask-icon" href="/img/pwa/favicon.ico" color="#006a73"><link rel="apple-touch-icon" sizes="180x180" href="/img/pwa/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="16x16" href="/img/pwa/favicon_16.ico"><link rel="icon" type="image/png" sizes="32x32" href="/img/pwa/favicon_32.ico"><link rel="bookmark" href="/img/pwa/favicon.ico"><script>console.log(' %c Solitude %c ' + '1.13.4' + ' %c https://github.com/everfu/hexo-theme-solitude',
+    'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
+    'background:#ff9a9a ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff',
+    'background:unset ; padding: 1px; border-radius: 0 3px 3px 0;  color: #fff')
+</script><script>let mdate = "7-7,9-18,12-13";
+mdate = (mdate.split(","));
+let ndate = new Date();
+for (let i of mdate) {
+    if (i === (ndate.getMonth()+1) + "-" + (ndate.getDate())) {
+        document.documentElement.classList.add('memorial');
+    }
+}
+</script><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><script>var _paq=window._paq=window._paq||[];_paq.push(["setDocumentTitle",document.domain+"/"+document.title]),_paq.push(["setCookieDomain","*.blog.coolspace.cc"]),_paq.push(["setDomains",["*.blog.coolspace.cc"]]),_paq.push(["trackPageView"]),_paq.push(["enableLinkTracking"]),function(){var u="//matomos.rr.nu/";_paq.push(["setTrackerUrl",u+"matomo.php"]),_paq.push(["setSiteId","2"]);var d=document,g=d.createElement("script"),s=d.getElementsByTagName("script")[0];g.async=true,g.src=u+"matomo.js",s.parentNode.insertBefore(g,s)}();</script><script>(()=>{
+        const saveToLocal = {
+            set: function setWithExpiry(key, value, ttl) {
+                if (ttl === 0)
+                    return
+                const now = new Date()
+                const expiryDay = ttl * 86400000
+                const item = {
+                    value: value,
+                    expiry: now.getTime() + expiryDay
+                }
+                localStorage.setItem(key, JSON.stringify(item))
+            },
+            get: function getWithExpiry(key) {
+                const itemStr = localStorage.getItem(key)
+    
+                if (!itemStr) {
+                    return undefined
+                }
+                const item = JSON.parse(itemStr)
+                const now = new Date()
+    
+                if (now.getTime() > item.expiry) {
+                    localStorage.removeItem(key)
+                    return undefined
+                }
+                return item.value
+            }
+        };
+        window.utils = {
+            saveToLocal: saveToLocal,
+            getCSS: (url, id = false) => new Promise((resolve, reject) => {
+              const link = document.createElement('link')
+              link.rel = 'stylesheet'
+              link.href = url
+              if (id) link.id = id
+              link.onerror = reject
+              link.onload = link.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                link.onload = link.onreadystatechange = null
+                resolve()
+              }
+              document.head.appendChild(link)
+            }),
+            getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+              const script = document.createElement('script')
+              script.src = url
+              script.async = true
+              script.onerror = reject
+              script.onload = script.onreadystatechange = function() {
+                const loadState = this.readyState
+                if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+                script.onload = script.onreadystatechange = null
+                resolve()
+              }
+    
+              Object.keys(attr).forEach(key => {
+                script.setAttribute(key, attr[key])
+              })
+    
+              document.head.appendChild(script)
+            }),
+            addGlobalFn: (key, fn, name = false, parent = window) => {
+                const globalFn = parent.globalFn || {}
+                const keyObj = globalFn[key] || {}
+        
+                if (name && keyObj[name]) return
+        
+                name = name || Object.keys(keyObj).length
+                keyObj[name] = fn
+                globalFn[key] = keyObj
+                parent.globalFn = globalFn
+            },
+        }
+    })()</script><!-- global head--><script>const GLOBAL_CONFIG = {
+    root: '/',
+    algolia: {"appId":"WXQ8VC2MAS","apiKey":"c7dad16a1bd032e50fbaae524bf830d6","indexName":"alal","hits":{"per_page":6}},
+    localsearch: undefined,
+    runtime: '2024-04-01 00:00:00',
+    lazyload: {
+        enable: false,
+        error: '/img/error_load.avif'
+    },
+    copyright: {"limit":10,"author":"作者: 阿凉不凉","link":"链接: ","source":"来源: 阿凉の杂货铺","info":"著作权归作者所有。 商业转载请联系作者获得授权，非商业转载请注明出处。"},
+    highlight: {"limit":200,"expand":true,"copy":true,"syntax":"highlight.js"},
+    randomlink: true,
+    lang: {"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功，复制和转载请标注本文地址","error":"复制失败"},"backtop":"返回顶部","time":{"day":"天前","hour":"小时前","just":"刚刚","min":"分钟前","month":"个月前"},"day":" 天","f12":"开发者模式已打开，请遵循GPL协议。","totalk":"无需删除空行，直接输入评论即可","search":{"empty":"找不到你查询的内容：${query}","hit":"找到 ${hits} 条结果，用时 ${time} 毫秒","placeholder":"输入关键词快速查找","count":"共 <b>${count}</b> 条结果。"},"barrage":{"title":"热评"}},
+    aside: {
+        sayhello: {
+            morning: '一日之计在于晨',
+            noon: '吃饱了才有力气干活',
+            afternoon: '集中精力，攻克难关',
+            night: '不要太劳累了，早睡更健康',
+            goodnight: '睡个好觉，保证精力充沛',
+        },
+        sayhello2: ["🤖️ 数码科技爱好者","🔍 分享与热心帮助","🌊 随风飘荡自由派","🔨 设计开发一条龙","🤝 专修交互与设计","🧱 团队小组发动机","💢 壮汉人狠话不多","🎮 电竞游戏爱好者"],
+        sayhello3: {
+            prefix: '好久不见，',
+            back: '欢迎再次回来，',
+        },
+    },
+    covercolor: {
+        enable: true
+    },
+    comment: {"avatar":"https://cravatar.cn","commentBarrage":true},
+    lightbox: 'fancybox',
+    post_ai: {"apiUrl":"https://free.gpt.ge/v1/chat/completions","apiKey":"sk-kP59Dy3oFrmwO6YXAf869eA4A8B94749916868E6A4B84869","model":"gpt-3.5-turbo","max_tokens":1000,"talk":"我是 CoolGPT 一个基于 EfuGPT 并结合 ChatGPT API 开发的摘要生成助理。CoolGPT在静态部署时进行摘要的撰写，并且在访客访问时通过CoolCorrection转译后的文本摘要实现工具。我在这里只负责已经生成的摘要显示，你无法与我直接沟通，但我可以回答一些预设的问题。","randomPost":true},
+    right_menu: {"mode":{"dark":"深色模式","light":"浅色模式"},"img_error":"此图片无法复制与下载","music":{"start":"播放音乐","stop":"暂停音乐"},"barrage":{"open":"显示热评","close":"关闭热评"},"translate":{"translateDelay":0,"defaultEncoding":2}},
+    lure: false,
+    expire: false,
+};</script><!-- page-config head--><script id="config-diff">var PAGE_CONFIG = {
+    is_post: false,
+    is_page: true,
+    is_home: false,
+    page: '',
+    toc: false,
+    comment: false,
+    ai_text: false
+}</script><meta name="generator" content="Hexo 7.2.0"><link rel="alternate" href="/atom.xml" title="阿凉の杂货铺" type="application/atom+xml">
+</head><body id="body"><!-- universe--><canvas id="universe"></canvas><!-- background img--><!-- loading--><div id="loading-box" onclick="preloader.endLoading();" style="zoom:1"><div class="loading-bg"><img class="loading-img nolazyload" src="https://p3-sign.toutiaoimg.com/tos-cn-i-eyfl5e3fp8/06000314bbb442aa957c1b8341b38b08~tplv-obj.image?lk3s=993df49e&amp;traceid=202406112232080CA94B4FDFD59CB5DFD1&amp;x-expires=2147483647&amp;x-signature=wba9jY38UB81dZy7jSZO2vOQr4A%3D" alt="loading image"></div></div><script>const preloader = {
+    endLoading: () => {
+        document.getElementById('loading-box').classList.toggle('loaded');
+    },
+    initLoading: () => {
+        document.getElementById('loading-box').classList.remove('loaded');
+    },
+    removePaceDone: () => {
+        document.getElementById('body').classList = 'pace-done';
+    }
+}
+window.addEventListener('load', () => {
+    preloader.endLoading();
+});
+window.addEventListener('pjax:send', () => {
+    preloader.initLoading();
+});
+document.addEventListener('pjax:complete', () => {
+    preloader.endLoading();
+});</script><!-- console--><div id="console"><div class="close-btn" onclick="sco.hideConsole()"><i class="solitude st-close-fill"></i></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments" onclick="sco.hideConsole()"><div class="card-content"><div class="author-content-item-tips">互动</div><div class="author-content-item-title">最新评论<a class="recent-comment-more" href="/recentcomments/" title="最近评论"><i class="solitude st-right-btn-fill"></i></a></div></div><div class="console_recentcomments"><script pjax>(async () => {
+    document.querySelector('.console-card .console_recentcomments').textContent = `加载中...`
+    const emojiReg = /<img class="tk-owo-emotion" [^>]+>/g
+    let cache = utils.saveToLocal.get('twikoo-recent-comments-console')
+    if (cache) {
+        setHtml(document.querySelector('.console-card .console_recentcomments'), cache)
+        return
+    }
+    let ls = []
+
+    await fetch('https://twikoo.cool.cc.ua/.netlify/functions/twikoo', {
+        method: "POST",
+        body: JSON.stringify({
+            "event": "GET_RECENT_COMMENTS",
+            "includeReply": true,
+            "pageSize": 6
+        }),
+        headers: {'Content-Type': 'application/json'}
+    }).then(res => res.json()).then(async ({data}) => {
+        for (const i of data) {
+            if (i.avatar === undefined) i.avatar = '/avatar/d615d5793929e8c7d70eab5f00f7f5f1?d=mp'
+            let title = ''
+            if (i.url) {
+                await fetch(i.url).then(res => res.text()).then(html => {
+                    const parser = new DOMParser()
+                    const doc = parser.parseFromString(html, 'text/html')
+                    title = doc.querySelector('title').innerText
+                }).catch(() => {
+                    title = i.url
+                })
+            }
+            if (title.indexOf('|') > 0) {
+                title = title.split('|')[0]
+            }
+            ls.push({
+                avatar: i.avatar,
+                nick: i.nick,
+                title: title,
+                content: i.comment,
+                url: i.url + '#' + i.id,
+                time: i.created
+            })
+        }
+        setHtml(document.querySelector('.console-card .console_recentcomments'), ls)
+        utils.saveToLocal.set('twikoo-recent-comments-console', ls, 0.2)
+    });
+
+    function setHtml(el, data) {
+        el.innerHTML = data.map(i => `
+            <div class="comment-card" title="${i.title}" onclick="pjax.loadUrl('${i.url}')">
+                <div class="comment-info">
+                    <img src="${i.avatar}" class="nolazyload" alt="${i.nick}">
+                    <div>
+                        <span class="comment-user">${i.nick}</span>
+                    </div>
+                    <time class="comment-time" datetime="${new Date(i.time)}"></time>
+                </div>
+                <div class="comment-content">${formatContent(i.content)}</div>
+                <div class="comment-title">
+                <i class="solitude st-chat-fill"></i>
+                ${i.title}</div>
+            </div>
+        `).join('')
+        if (typeof sco !== 'undefined') sco.changeTimeFormat(document.querySelectorAll('.comment-time'))
+        else {
+            document.addEventListener('pjax:complete', () => sco.changeTimeFormat(document.querySelectorAll('.comment-time')))
+            document.addEventListener('DOMContentLoaded', () => sco.changeTimeFormat(document.querySelectorAll('.comment-time')))
+        }
+    }
+
+    function formatContent(content) {
+        content = content.replace(emojiReg, '表情')
+        content = content.replace(/<\/*br>|[\s\uFEFF\xA0]+/g, '');
+        content = content.replace(/<img.*?>/g, '[图片]');
+        content = content.replace(/<a.*?>.*?<\/a>/g, '[链接]');
+        content = content.replace(/<pre.*?>.*?<\/pre>/g, '[代码]');
+        content = content.replace(/<.*?>/g, '');
+        return content
+    }
+})()</script></div></div></div><div class="console-card-group-right"><div class="console-card tags" onclick="sco.hideConsole()"><div class="card-content"><div class="author-content-item-tips">标签</div><div class="author-content-item-title">寻找感兴趣的领域</div></div><div class="card-tag-cloud"></div></div><div class="console-card history" onclick="sco.hideConsole()"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">2024/06</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span class="card-archive-list-count-unit">篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">2022/01</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span class="card-archive-list-count-unit">篇</span></div></a></li></ul></div></div></div><div class="button-group"><div class="console-btn-item"><span class="darkmode_switchbutton" onclick="sco.switchDarkMode()" title="昼夜切换"><i class="solitude st-moon-clear-fill"></i></span></div><div class="console-btn-item" id="consoleHideAside"><span class="asideSwitch" onclick="sco.switchHideAside()" title="边栏显示控制"><i class="solitude st-side-bar-fill"></i></span></div><div class="console-btn-item" id="consoleMusic" onclick="sco.musicToggle()"><span class="music-switch" title="音乐开关"><i class="solitude st-disc-fill"></i></span></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="sco.switchCommentBarrage()"><span class="commentBarrage"><i class="solitude st-chat-fill"></i></span></div></div><div class="console-mask" onclick="sco.hideConsole()"></div></div><!-- sidebar--><div id="sidebar" style="zoom: 1;"><div id="menu-mask" style="display: none;"></div><div id="sidebar-menus"><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div></div></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><span class="darkmode_switchbutton menu-child" onclick="sco.switchDarkMode()"><i class="solitude st-moon-clear-fill"></i><span>显示模式</span></span></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://home.cool.cc.ua/" title="主页"><img class="nolazyload back-menu-item-icon" src="/img/pwa/favicon.ico" alt="主页"><span class="back-menu-item-text">主页</span></a><a class="back-menu-item" href="https://blog.coolspace.cc/" title="博客"><img class="nolazyload back-menu-item-icon" src="/img/pwa/favicon.ico" alt="博客"><span class="back-menu-item-text">博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.moments.rr.nu/" title="朋友圈"><img class="nolazyload back-menu-item-icon" src="/img/pwa/favicon.ico" alt="朋友圈"><span class="back-menu-item-text">朋友圈</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" href="/Clock/" title="黑色时钟"><img class="nolazyload back-menu-item-icon" src="/img/pwa/favicon.ico" alt="黑色时钟"><span class="back-menu-item-text">黑色时钟</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cold.free.nf/Speed/" title="网络测速"><img class="nolazyload back-menu-item-icon" src="/img/pwa/favicon.ico" alt="网络测速"><span class="back-menu-item-text">网络测速</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">服务</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://design.cool.cc.ua/zh" title="图片编辑"><img class="nolazyload back-menu-item-icon" src="/img/haoka.jpg" alt="图片编辑"><span class="back-menu-item-text">图片编辑</span></a><a class="back-menu-item" href="/WechatOA/" title="公众号"><img class="nolazyload back-menu-item-icon" src="/img/haoka.jpg" alt="公众号"><span class="back-menu-item-text">公众号</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://nav.cool.nyc.mn/" title="导航网站"><img class="nolazyload back-menu-item-icon" src="/img/haoka.jpg" alt="导航网站"><span class="back-menu-item-text">导航网站</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://hot.cool.cc.ua/#/" title="今日热榜"><img class="nolazyload back-menu-item-icon" src="/img/haoka.jpg" alt="今日热榜"><span class="back-menu-item-text">今日热榜</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  st-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  st-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  st-price-tag-fill"></i><span>全部标签</span></a></li><li><a class="site-page child" href="/charts/"><i class="solitude  st-chat-poll-line"></i><span>文章统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>友链</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/moments/"><i class="solitude  st-wifi-fill"></i><span>友链鱼塘</span></a></li><li><a class="site-page child" href="javascript:travelling()"><i class="solitude  st-gift-fill"></i><span>宝藏博主</span></a></li><li><a class="site-page child" href="/links/"><i class="solitude  st-group-fill"></i><span>友情链接</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/tlink/"><i class="solitude  st-tools-fill"></i><span>工具箱</span></a></li><li><a class="site-page child" href="/music/"><i class="solitude  st-disc-fill"></i><span>音乐馆</span></a></li><li><a class="site-page child" href="/message/"><i class="solitude  st-chat-fill"></i><span>留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  st-contacts-fill"></i><span>关于本站</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-widget card-tags card-archives card-webinfo card-allinfo"><div class="card-tag-cloud"></div></div></div></div><!-- keyboard--><div class="page" id="body-wrap"><header class="not-top-img" id="page-header"><nav class="show" id="nav"><div id="nav-group"><div id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon solitude st-more-fill"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">博客</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://home.cool.cc.ua/" title="主页"><img class="nolazyload back-menu-item-icon" src="/img/pwa/favicon.ico" alt="主页"><span class="back-menu-item-text">主页</span></a><a class="back-menu-item" href="https://blog.coolspace.cc/" title="博客"><img class="nolazyload back-menu-item-icon" src="/img/pwa/favicon.ico" alt="博客"><span class="back-menu-item-text">博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://www.moments.rr.nu/" title="朋友圈"><img class="nolazyload back-menu-item-icon" src="/img/pwa/favicon.ico" alt="朋友圈"><span class="back-menu-item-text">朋友圈</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" href="/Clock/" title="黑色时钟"><img class="nolazyload back-menu-item-icon" src="/img/pwa/favicon.ico" alt="黑色时钟"><span class="back-menu-item-text">黑色时钟</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="http://cold.free.nf/Speed/" title="网络测速"><img class="nolazyload back-menu-item-icon" src="/img/pwa/favicon.ico" alt="网络测速"><span class="back-menu-item-text">网络测速</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">服务</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://design.cool.cc.ua/zh" title="图片编辑"><img class="nolazyload back-menu-item-icon" src="/img/haoka.jpg" alt="图片编辑"><span class="back-menu-item-text">图片编辑</span></a><a class="back-menu-item" href="/WechatOA/" title="公众号"><img class="nolazyload back-menu-item-icon" src="/img/haoka.jpg" alt="公众号"><span class="back-menu-item-text">公众号</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://nav.cool.nyc.mn/" title="导航网站"><img class="nolazyload back-menu-item-icon" src="/img/haoka.jpg" alt="导航网站"><span class="back-menu-item-text">导航网站</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://hot.cool.cc.ua/#/" title="今日热榜"><img class="nolazyload back-menu-item-icon" src="/img/haoka.jpg" alt="今日热榜"><span class="back-menu-item-text">今日热榜</span></a></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><span class="title">阿凉の杂货铺</span></a></div><div id="page-name-mask"><div id="page-name"><a id="page-name-text" onclick="sco.toTop()">Cookie</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>文库</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="solitude  st-folder-fill"></i><span>文章列表</span></a></li><li><a class="site-page child" href="/categories/"><i class="solitude  st-checkbox-multiple-blank-fill"></i><span>全部分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="solitude  st-price-tag-fill"></i><span>全部标签</span></a></li><li><a class="site-page child" href="/charts/"><i class="solitude  st-chat-poll-line"></i><span>文章统计</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>友链</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/moments/"><i class="solitude  st-wifi-fill"></i><span>友链鱼塘</span></a></li><li><a class="site-page child" href="javascript:travelling()"><i class="solitude  st-gift-fill"></i><span>宝藏博主</span></a></li><li><a class="site-page child" href="/links/"><i class="solitude  st-group-fill"></i><span>友情链接</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>我的</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/tlink/"><i class="solitude  st-tools-fill"></i><span>工具箱</span></a></li><li><a class="site-page child" href="/music/"><i class="solitude  st-disc-fill"></i><span>音乐馆</span></a></li><li><a class="site-page child" href="/message/"><i class="solitude  st-chat-fill"></i><span>留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span>关于</span></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="solitude  st-contacts-fill"></i><span>关于本站</span></a></li></ul></div></div></div><div id="nav-left"></div><div id="nav-right"><div class="nav-button" id="travellings_button"><a class="site-page" target="_blank" rel="noopener" href="https://www.travellings.cn/go.html" onclick="点击事件 / Click event" title=""><i class="solitude st-train-line"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机一篇文章" href="javascript:void(0);"><i class="solitude st-dice-line"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索"><i class="solitude st-search-line"></i></a></div><div class="nav-button" id="nav-console"><a class="console_switchbutton" onclick="sco.showConsole()" title="中控台" href="javascript:void(0);"><i class="solitude st-dashboard-fill"></i></a></div><div class="nav-button" id="nav-totop" onclick="sco.toTop()"><a class="totopbtn"><i class="solitude st-arrow-up-line"></i><span id="percent">0</span></a></div><div id="toggle-menu"><a class="site-page"><i class="solitude st-menu-line"></i></a></div></div></div></nav></header><main class="layout hide-aside" id="content-inner"><div id="page"><div id="article-container"><h2 id="更新时间"><a href="#更新时间" class="headerlink" title="更新时间"></a>更新时间</h2><ul>
+<li>2024年8月11日</li>
+</ul>
+<h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><p>为了确保网站和我开发的软件的可靠性、安全性和个性化，我使用 Cookies。当你接受 Cookies 时，这有助于通过识别你的身份、记住你的偏好或提供个性化用户体验来帮助我改善网站。</p>
+<p>本政策应与我的<a href="/privacy/">隐私政策</a>一起阅读，该隐私政策解释了我如何使用个人信息。</p>
+<p>如果你对我使用你的个人信息或 Cookies 的方式有任何疑问，请通过 <a href="mailto:mail@cool.com.mp">mail@cool.com.mp</a> 与我联系。</p>
+<p>如果你想管理你的 Cookies，请按照下面“如何管理 Cookies”部分中的说明进行操作。</p>
+<h2 id="什么是Cookies？"><a href="#什么是Cookies？" class="headerlink" title="什么是Cookies？"></a>什么是Cookies？</h2><p>Cookies 是一种小型文本文件，当你访问网站时，网站可能会将这些文件放在你的计算机或设备上。Cookies 会帮助网站或其他网站在你下次访问时识别你的设备。网站信标、像素或其他类似文件也可以做同样的事情。我在此政策中使用术语“Cookies”来指代以这种方式收集信息的所有文件。</p>
+<p>Cookies 提供许多功能。例如，他们可以帮助我记住你喜欢深色模式还是浅色模式，分析我网站的效果。</p>
+<p>大多数网站使用 Cookies 来收集和保留有关其访问者的个人信息。大多数 Cookies 收集一般信息，例如访问者如何到达和使用我的网站，他们使用的设备，他们的互联网协议地址（IP 地址），他们正在查看的页面及其大致位置（例如，我将能够认识到你正在从北京访问我的网站）。</p>
+<h2 id="Cookie的目的"><a href="#Cookie的目的" class="headerlink" title="Cookie的目的"></a>Cookie的目的</h2><table>
+<thead>
+<tr>
+<th>用途</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>授权</td>
+<td>你访问我的网站时，我可通过 Cookie 提供正确信息，为你打造个性化的体验。例如：Cookie会告知你通过搜索引擎搜索的具体内容来改善文章的标题优化关键词、或者创建更符合你搜索需求的文章内容。</td>
+</tr>
+<tr>
+<td>安全措施</td>
+<td>我通过 Cookie 启用及支持安全功能，监控和防止可疑活动、欺诈性流量和违反版权协议的行为。</td>
+</tr>
+<tr>
+<td>偏好、功能和服务</td>
+<td>我使用功能性Cookies来让我记住你的偏好，或保存你向我提供的有关你的喜好或其他信息。</td>
+</tr>
+<tr>
+<td>个性化广告</td>
+<td>本站不涉及个性化广告服务</td>
+</tr>
+<tr>
+<td>网站性能、分析和研究</td>
+<td>我使用这些cookie来监控网站性能。这使我能够通过快速识别和解决出现的任何问题来提供高质量的体验。</td>
+</tr>
+</tbody></table>
+<h2 id="第三方Cookies"><a href="#第三方Cookies" class="headerlink" title="第三方Cookies"></a>第三方Cookies</h2><p>我还在我的网站上使用属于上述类别的第三方Cookies，用于以下目的：</p>
+<ul>
+<li>帮助我监控网站上的流量；</li>
+<li>识别欺诈或非人为性流量；</li>
+<li>协助市场调研；</li>
+<li>改善网站功能；</li>
+<li>监督我的版权协议和隐私政策的遵守情况。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>第三方服务商</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>无</td>
+<td>本站未使用任何第三方cookies</td>
+</tr>
+</tbody></table>
+<h2 id="如何管理Cookies？"><a href="#如何管理Cookies？" class="headerlink" title="如何管理Cookies？"></a>如何管理Cookies？</h2><ul>
+<li>在将Cookie放置在您的计算机或设备上之前，系统会显示一个弹出窗口，要求您同意设置这些Cookie。</li>
+<li>您可以通过浏览器设置关闭本站的Cookie来拒绝同意放置Cookies。</li>
+<li>您可以通过访问浏览器设置随时返回到您的Cookie偏好设置以查看和&#x2F;或删除它们。</li>
+</ul>
+<h2 id="浏览器设置"><a href="#浏览器设置" class="headerlink" title="浏览器设置"></a>浏览器设置</h2><ul>
+<li><p>有关如何在所有主流浏览器中控制Cookie的说明，请访问以下链接：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://support.google.com/chrome/answer/95647?hl=en">Google Chrome</a></li>
+<li><a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/help/17442/windows-internet-explorer-delete-manage-cookies">IE</a></li>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/safari/manage-cookies-and-website-data-sfri11471/mac">Safari（桌面版）</a></li>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/HT201265">Safari（移动版）</a></li>
+<li><a target="_blank" rel="noopener" href="https://support.mozilla.org/zh-CN/kb/enable-and-disable-cookies-website-preferences">火狐浏览器</a></li>
+<li><a target="_blank" rel="noopener" href="https://support.google.com/chrome/answer/95647?hl=en">Android浏览器</a></li>
+</ul>
+</li>
+<li><p>如果您使用的是其他浏览器，请查阅浏览器制造商提供的文档以了解如何管理Cookies，更多信息请访问：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://support.google.com/chrome/answer/95647?hl=en">wikipedia.org</a></li>
+<li><a target="_blank" rel="noopener" href="https://support.microsoft.com/zh-cn/help/17442/windows-internet-explorer-delete-manage-cookies">allaboutCookies.org </a></li>
+<li><a target="_blank" rel="noopener" href="https://support.apple.com/zh-cn/guide/safari/manage-cookies-and-website-data-sfri11471/mac">aboutCookies.org</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="更多信息"><a href="#更多信息" class="headerlink" title="更多信息"></a>更多信息</h2><ul>
+<li>有关数据处理的更多信息，请参阅我的<a href="/privacy/">隐私政策</a></li>
+<li>如对此Cookie政策有任何疑问，请通过<a href="mailto:coolspace@email.cn">mail@cool.com.mp</a>与我联系。</li>
+</ul>
+<h2 id="Cookie政策的更改"><a href="#Cookie政策的更改" class="headerlink" title="Cookie政策的更改"></a>Cookie政策的更改</h2><p>我可能对此Cookie政策所做的任何更改都将发布在此页面上。如果更改很重要，我会在我的主页或应用上明确指出该政策已更新。</p>
+</div></div></main><footer id="footer"><div id="footer_deal"><a class="deal_link" target="_blank" rel="noopener" href="https://github.com/ALBULAING" title="Github"><i class="solitude  st-github-line"></i></a><a class="deal_link" href="mailto:coolspace@email.cn" title="Mail"><i class="solitude  st-mail-line"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://www.zhihu.com/people/50-90-65-77" title="知乎"><i class="solitude  st-zhihu-line"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://wechat.cool.nyc.mn/" title="微信公众号"><i class="solitude  st-wechat-fill"></i></a><div class="nolazyload footer_mini_logo" id="footer_mini_logo" title="返回顶部" onclick="sco.toTop()"><img src="https://p3-sign.toutiaoimg.com/tos-cn-i-eyfl5e3fp8/06000314bbb442aa957c1b8341b38b08~tplv-obj.image?lk3s=993df49e&amp;traceid=202406112232080CA94B4FDFD59CB5DFD1&amp;x-expires=2147483647&amp;x-signature=wba9jY38UB81dZy7jSZO2vOQr4A%3D" alt="返回顶部"></div><a class="deal_link" target="_blank" rel="noopener" href="https://pd.qq.com/s/fnxm2u8au" title="QQ频道"><i class="solitude  st-qq-line"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://www.xiaohongshu.com/user/profile/5f5238cc00000000010042b8?xhsshare=CopyLink&amp;appuid=5f5238cc00000000010042b8&amp;apptime=1718374283&amp;share_id=d6e70f7f132f4fa48c7a27595690e1c9" title="小红书"><i class="solitude   st-book-2-fill"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://space.bilibili.com/1329819902" title="Bilibili"><i class="solitude  st-bilibili-line"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://v.douyin.com/iJsLc8jt/" title="抖音"><i class="solitude  st-douyin-fill"></i></a></div><div id="st-footer"><div class="footer-group"><h3 class="footer-title">导航</h3><div class="footer-links"><a class="footer-item" href="/archives/" title="归档">归档</a><a class="footer-item" href="/categories/" title="分类">分类</a><a class="footer-item" href="/tags/" title="标签">标签</a><a class="footer-item" href="/essay/" title="即刻短文">即刻短文</a></div></div><div class="footer-group"><h3 class="footer-title">服务</h3><div class="footer-links"><a class="footer-item" target="_blank" rel="noopener" href="https://status.cool.nyc.mn/" title="运行状态">运行状态</a><a class="footer-item" target="_blank" rel="noopener" href="https://v6.51.la/" title="51la统计">51la统计</a><a class="footer-item" target="_blank" rel="noopener" href="https://tongji.baidu.com/" title="百度统计">百度统计</a></div></div><div class="footer-group"><h3 class="footer-title">支持</h3><div class="footer-links"><a class="footer-item" href="/about/" title="打赏记录">打赏记录</a></div></div><div class="footer-group"><h3 class="footer-title">协议</h3><div class="footer-links"><a class="footer-item" href="/cookies/" title="Cookies">Cookies</a><a class="footer-item" href="/privacy/" title="用户协议">用户协议</a><a class="footer-item" href="/license/" title="版权协议">版权协议</a></div></div><div class="footer-group"><div class="footer-title-group"><h3 class="footer-title">友链</h3><button class="random-friends-btn" onclick="randomLinksList()" title="友链"><i class="solitude st-refresh-line"></i></button></div><div class="footer-links" id="friend-links-in-footer"></div></div></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div class="copyright">© 2024 By&nbsp;<a class="footer-bar-link" href="/">阿凉不凉</a></div></div><div class="footer-bar-right"><a class="footer-bar-link" href="/sub/" alt="订阅">订阅</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/valor-x/hexo-theme-solitude" alt="主题">主题</a><a class="footer-bar-link cc" href="/license/" aria-label="copyright"><i class="solitude st-copyright-line"></i><i class="solitude st-creative-commons-by-line"></i><i class="solitude st-creative-commons-nc-line"></i><i class="solitude st-creative-commons-nd-line"></i></a></div></div></div><div class="needEndHide" id="cookies-window"><div class="cookies-window-title">协议提醒助手</div><div class="cookies-window-content"><span class="cookies-tip">查看本站为你的个人隐私做出的努力</span><a class="cookies-link" href="/privacy/" title="本站如何保护你的隐私"><i class="solitude st-right-btn-fill"></i></a></div></div><div class="comment-barrage needEndHide"></div></footer></div><!-- right_menu--><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="solitude st-arrow-left-line"></i></div><div class="rightMenu-item" id="menu-forward"><i class="solitude st-arrow-right-line"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="solitude st-restart-line"></i></div><div class="rightMenu-item" id="menu-top"><i class="solitude st-arrow-up-line"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="solitude st-copy-fill"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="solitude st-clipboard-fill"></i><span>粘贴文本</span></div><div class="rightMenu-item" id="menu-commenttext"><i class="solitude st-chat-new-fill"></i><span>引用到评论</span></div><div class="rightMenu-item" id="menu-newwindow"><i class="solitude st-window-fill"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="solitude st-link-line"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="solitude st-copy-fill"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="solitude st-download-cloud-fill"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-search"><i class="solitude st-search-line"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="solitude st-play-fill"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="solitude st-skip-back-fill"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="solitude st-skip-forward-fill"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="solitude st-copy-fill"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class="rightMenu-item" id="menu-randomPost" onclick="toRandomPost()||rm.hideRightMenu()"><i class="solitude st-signal-tower-fill"></i><span>随机短文</span></div><div class="rightMenu-item" onclick="pjax.loadUrl('/categories/')||rm.hideRightMenu()"><i class="solitude st-checkbox-multiple-blank-fill"></i><span>全部分类</span></div><div class="rightMenu-item" onclick="pjax.loadUrl('/tags/')||rm.hideRightMenu()"><i class="solitude st-price-tag-fill"></i><span>全部标签</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class="rightMenu-item" onclick="pjax.loadUrl('/license/')||rm.hideRightMenu()"><i class="solitude st-creative-commons-fill"></i><span>版权协议</span></div><div class="rightMenu-item" onclick="pjax.loadUrl('/privacy/')||rm.hideRightMenu()"><i class="solitude st-shield-user-fill"></i><span>隐私协议</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><div class="rightMenu-item" id="menu-commentBarrage" onclick="sco.switchCommentBarrage()"><i class="solitude st-chat-fill"></i><span class="menu-commentBarrage-text">关闭热评</span></div><div class="rightMenu-item" id="menu-darkmode" onclick="sco.switchDarkMode()"><i class="solitude st-moon-clear-fill"></i><span class="menu-darkmode-text">深色模式</span></div><div class="rightMenu-item" id="menu-translate"><i class="solitude st-panben-line"></i><span>轉為繁體</span></div></div></div><div id="rightmenu-mask"></div><!-- inject body--><div><script src="/js/utils.js?v=1.13.4"></script><script src="/js/main.js?v=1.13.4"></script><script src="/js/third_party/waterfall.min.js?v=1.13.4"></script><script src="https://lib.baomitu.com/pjax/0.2.8/pjax.min.js"></script><script src="/js/third_party/universe.min.js?v=1.13.4"></script><script>dark()
+</script><script src="/js/tw_cn.js?v=1.13.4"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/node-snackbar/0.1.16/snackbar.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.umd.min.js"></script><script src="/js/third_party/efu_ai.min.js?v=1.13.4"></script><script>var meting_api = 'https://meting.everfu.cn/?server=:server&type=:type&id=:id&auth=:auth&r=:r';</script><script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/meting/2.0.1/Meting.min.js"></script><script>const coverColorConfig = {
+    api: 'https://color.cool.cc.ua/api?img=',
+    time: 43200000
+}</script><script src="/js/covercolor/api.js?v=1.13.4"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/instantsearch.js/4.73.2/instantsearch.production.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/algoliasearch/4.24.0/algoliasearch-lite.umd.min.js"></script><script src="/js/right_menu.js?v=1.13.4"></script><div class="js-pjax"><script defer pjax src="https://pv.lemonso.com/js"></script></div></div><script>const links = [{"name":"isYangs","link":"https://isyangs.cn"},{"name":"小妖客栈","link":"https://wangkay.top"},{"name":"辉辉博客","link":"https://www.hui.vin"},{"name":"PeterJXL","link":"https://www.peterjxl.com"},{"name":"小染笔记","link":"https://onoe.cn"}]
+const randomText = '点击前往按钮进入随机一个友链，不保证跳转网站的安全性和可用性。本次随机到的是本站友链：⌈ ${name} ⌋'
+function travelling() {
+    const link = links[utils.randomNum(links.length)];
+    Snackbar.show({
+        text: randomText.replace(/\$\{name}/,link.name),
+        duration: 8000,
+        pos: 'top-center',
+        actionText: '前往',
+        onActionClick: function(element) {
+            element.style.opacity = 0;
+            window.open(link.link, '_blank');
+        }
+    });
+}
+</script><script>function randomLinksList() {
+    const linkcard = document.getElementById('friend-links-in-footer');
+    if (linkcard == null) return;
+
+    let data = '';
+    let linksCopy = [...links];
+    let count = Math.min(3, linksCopy.length);
+
+    for (let i = 0; i < count; i++) {
+        let index = utils.randomNum(linksCopy.length);
+        const {link, name} = linksCopy[index];
+        data += `<a class="footer-item" href="${link}" target="_blank" rel="noopener noreferrer nofollow">${name}</a>`;
+        linksCopy.splice(index, 1);
+    }
+
+    linkcard.innerHTML = data + '<a class="footer-item" href="/links/">更多</a>';
+}</script><!-- pjax--><script>const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: ['title','#body-wrap','#site-config','meta[name="description"]','.js-pjax','meta[property^="og:"]','#config-diff'],
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+})
+
+document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+})
+
+document.addEventListener('pjax:complete', () => {
+    window.refreshFn()
+
+    document.querySelectorAll('script[data-pjax]').forEach(item => {
+        const newScript = document.createElement('script')
+        const content = item.text || item.textContent || item.innerHTML || ""
+        Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+        newScript.appendChild(document.createTextNode(content))
+        item.parentNode.replaceChild(newScript, item)
+    })
+
+    GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+})
+
+document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+        pjax.loadUrl('/404.html')
+    }
+})</script><!-- theme--><script>initTheme = () => {
+    let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const cachedMode = utils.saveToLocal.get('theme');
+    if (cachedMode === undefined) {
+        const nowMode =
+            isDarkMode ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', nowMode);
+    } else {
+        document.documentElement.setAttribute('data-theme', cachedMode);
+    }
+    typeof rm === 'object' && rm.mode(cachedMode === 'dark' && isDarkMode)
+}
+initTheme()</script><!-- google adsense--><!-- search--><div id="algolia-search"><div class="search-dialog"><div class="algolia-navbar"><div class="search-dialog__title" id="algolia-search-title">搜索</div><div class="algolia-tips"><i class="solitude st-algolia-fill"></i><span class="algolia-tips-text">Algolia</span></div><span class="search-close-button"><i class="solitude st-close-fill"></i></span></div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><div id="search-results"><div id="algolia-hits"><a class="tag-list" href="javascript:void(0);" onclick="pjax.loadUrl('/tags/Solitude/')">Solitude</a><a class="tag-list" href="javascript:void(0);" onclick="pjax.loadUrl('/tags/Hexo/')">Hexo</a></div></div><div id="algolia-tips"><div id="algolia-pagination"></div><div id="algolia-stats"></div></div></div><div id="search-mask"></div></div><script src="/js/search/algolia.js?v=1.13.4"></script><!-- Tianli-Talk--><!-- music--><div class="needEndHide" id="nav-music" onclick="sco.musicToggle()"><div id="nav-music-hoverTips">音乐已暂停</div><meting-js id="8407304077" server="netease" type="playlist" mutex="true" preload="none" data-lrctype="0" order="random" theme="var(--efu-main)"></meting-js></div></body></html><script>const posts=["posts/f10dc090.html","posts/7a6a6b5a.html","posts/5a6a9181.html","posts/4a17b156.html"];function toRandomPost(){ pjax.loadUrl(GLOBAL_CONFIG.root+posts[Math.floor(Math.random()*posts.length)]); }</script>
