@@ -99,5 +99,101 @@
   .rss-plan-item:hover {
     text-decoration: none !important;
   }
+  .article-follow-form {
+    margin: 2rem 0;
+    padding: 2rem;
+    background: var(--icat-background);
+    border-radius: 12px;
+    border: var(--style-border);
+    box-shadow: var(--icat-shadow-border);
+  }
   
+  .article-follow-form .form-container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
   
+  .article-follow-form .form-title {
+    margin: 0 0 1.5rem;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--icat-fontcolor);
+  }
+  
+  .article-follow-form .input-field {
+    margin-bottom: 1rem;
+  }
+  
+  .article-follow-form input {
+    width: 100%;
+    height: 48px;
+    padding: 0 1rem;
+    border: 2px solid var(--icat-card-border);
+    border-radius: 6px;
+    background: var(--icat-secondbg);
+    color: var(--icat-fontcolor);
+    font-size: 14px;
+    text-align: center;
+    transition: border-color 0.3s ease;
+  }
+  
+  .article-follow-form input:focus {
+    outline: none;
+    border-color: var(--icat-theme);
+  }
+  
+  .article-follow-form button {
+    width: 100%;
+    height: 42px;
+    background: var(--icat-black);
+    color: var(--icat-white);
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .article-follow-form button:hover {
+    background: var(--icat-blue);
+  }
+  
+  .article-follow-form .powered-by {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+  }
+  
+  .article-follow-form .powered-by a {
+    display: inline-flex;
+    align-items: center;
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .article-follow-form .follow-logo {
+    height: 20px;
+    margin-left: 0.5rem;
+  }
+  
+  /* 响应式适配 */
+  @media screen and (max-width: 768px) {
+    .article-follow-form {
+      padding: 1.5rem;
+    }
+    
+    .article-follow-form .form-title {
+      font-size: 16px;
+    }
+    
+    .article-follow-form input {
+      height: 40px;
+    }
+    
+    .article-follow-form button {
+      height: 38px;
+    }
+  }
