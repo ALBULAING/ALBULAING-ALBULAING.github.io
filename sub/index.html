@@ -388,30 +388,34 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <h2 id="全部文章订阅方式"><a href="#全部文章订阅方式" class="headerlink" title="全部文章订阅方式"></a>全部文章订阅方式</h2><h2 id="Follow-it（文章摘要）"><a href="#Follow-it（文章摘要）" class="headerlink" title="Follow.it（文章摘要）"></a><strong>Follow.it（文章摘要）</strong></h2><p>使用 Follow.it，您可以通过电子邮件订阅博客的完整更新，确保您不会错过任何新发布的内容。</p>
-<div class="follow-form-wrapper" id="subscribe-form">
-  <div class="follow-form">
-    <div class="form-header">
-      <h2>订阅本站文章：</h2>
-      <img src="https://follow.it/static/img/colored-logo.svg" alt="follow.it" class="follow-logo">
-    </div>
-    <form action="https://api.follow.it/subscription-form/UU1USHRiOEdRdVJlU0FxSUgzSFVaVGdsVnAvVDFKZnVQbTI2U2tjMVRFZXJMSXY5TGRxWHdId1kxUWNuUkluWFVEM3ZsYUNkV2xmLzhrVWMwcXpINnFoaTduU291WWRMRE9ndkorL1d6UDhsQkw0bHhPaGZWdkpiSitVZHZ5YXR8VStxZUswUjhuTHRGaUM5Q3N3UURnZmp5bDRlN3lVeDBTTElCQzVPK254WT0=/8" method="post">
+<!-- 订阅表单容器 -->
+<div class="follow-form-container" id="subscribe-form">
+  <form action="https://api.follow.it/subscribe?pub=YDgVmI6K0mm9l1_CRzUY_g" method="post" target="_blank">
+    <div class="form-content">
+      <div class="form-header">
+        <h2>订阅本站文章：</h2>
+        <img src="https://follow.it/static/img/colored-logo.svg" alt="follow.it" class="follow-logo">
+      </div>
       <div class="input-wrapper">
         <input type="email" name="email" required placeholder="填入您的邮箱地址">
       </div>
-      <button type="submit">确认订阅</button>
-    </form>
-  </div>
+      <button type="submit" onclick="if(typeof ga !== 'undefined') { ga('send', 'event', 'Form', 'Submit', 'Affiliate'); }">
+        确认订阅
+      </button>
+    </div>
+  </form>
 </div>
 
 <style>
-.follow-form-wrapper {
+/* 基础样式 */
+.follow-form-container {
   width: 100%;
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
 
-.follow-form {
+.form-content {
   background: #fff;
   border-radius: 12px;
   padding: 2rem;
@@ -419,6 +423,7 @@ document.addEventListener('DOMContentLoaded', function() {
   border: 1px solid #eee;
 }
 
+/* 表单头部样式 */
 .form-header {
   display: flex;
   justify-content: space-between;
@@ -438,6 +443,7 @@ document.addEventListener('DOMContentLoaded', function() {
   opacity: 0.8;
 }
 
+/* 输入框样式 */
 .input-wrapper {
   margin-bottom: 1rem;
 }
@@ -450,6 +456,7 @@ document.addEventListener('DOMContentLoaded', function() {
   border-radius: 6px;
   font-size: 1rem;
   text-align: center;
+  background: #fff;
   transition: border-color 0.3s ease;
 }
 
@@ -462,6 +469,7 @@ document.addEventListener('DOMContentLoaded', function() {
   color: #999;
 }
 
+/* 按钮样式 */
 button[type="submit"] {
   width: 100%;
   height: 48px;
@@ -481,18 +489,18 @@ button[type="submit"]:hover {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .follow-form {
+  .form-content {
     padding: 1.5rem;
   }
-  
+
   .form-header h2 {
     font-size: 1.1rem;
   }
-  
+
   .follow-logo {
     height: 20px;
   }
-  
+
   .input-wrapper input,
   button[type="submit"] {
     height: 42px;
@@ -500,25 +508,32 @@ button[type="submit"]:hover {
 }
 
 @media (max-width: 480px) {
-  .follow-form {
+  .form-content {
     padding: 1rem;
   }
-  
+
   .form-header {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
   }
+
+  .form-header h2 {
+    text-align: center;
+  }
 }
 </style>
 
 <script>
+// 处理平滑滚动
 document.addEventListener('DOMContentLoaded', function() {
-  // 处理邮件订阅卡片点击
+  // 获取邮件订阅卡片
   const mailCard = document.querySelector('.rss-plan-mail');
   if (mailCard) {
+    // 阻止默认行为并添加点击事件
     mailCard.addEventListener('click', function(e) {
       e.preventDefault();
+      // 获取订阅表单并滚动到其位置
       const subscribeForm = document.getElementById('subscribe-form');
       if (subscribeForm) {
         subscribeForm.scrollIntoView({
