@@ -2110,7 +2110,7 @@ span.tags-punctuation::before {
 }
 @media screen and (max-width: 768px) {
   .post #article-container {
-    padding: 0.5rem;
+    padding: 1rem;
   }
 }
 #article-container iframe {
@@ -2306,7 +2306,7 @@ span.tags-punctuation::before {
 #article-container hr {
   display: flex;
   position: relative;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
   border-width: 0;
   border-top: 1px dashed var(--efu-theme-op);
 }
