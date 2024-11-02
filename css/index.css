@@ -2110,7 +2110,7 @@ span.tags-punctuation::before {
 }
 @media screen and (max-width: 768px) {
   .post #article-container {
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
   }
 }
 #article-container iframe {
@@ -9285,7 +9285,7 @@ div#banners .bannerText {
   border-width: 1px;
   transition: 0.3s;
   position: relative;
-  margin: 1rem 1rem 0.5rem /* 原来为2rem */;
+  margin: 34px 12px 20px 12px /* 原来为2rem */;
   border-radius: 12px;
   padding: 34px 0 20px 0;
   border: var(--style-border-always);
@@ -12562,7 +12562,7 @@ div.timenode:hover .meta:after {
   background: var(--efu-card-bg);
 }
 .post #post-comment {
-  padding: 0 1rem;
+  padding: 0 1rem 1rem 1rem;
 }
 #post-comment > div.comment-head > div.comment-privacy {
   display: block;
