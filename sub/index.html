@@ -234,44 +234,172 @@ document.addEventListener('pjax:complete', () => {
 
 <h3 id="公众号名称：科技阿凉"><a href="#公众号名称：科技阿凉" class="headerlink" title="公众号名称：科技阿凉"></a>公众号名称：<strong>科技阿凉</strong></h3><h2 id="全部文章订阅方式"><a href="#全部文章订阅方式" class="headerlink" title="全部文章订阅方式"></a>全部文章订阅方式</h2><h2 id="Follow-it（文章摘要）"><a href="#Follow-it（文章摘要）" class="headerlink" title="Follow.it（文章摘要）"></a><strong>Follow.it（文章摘要）</strong></h2><p>使用 Follow.it，您可以通过电子邮件订阅博客的完整更新，确保您不会错过任何新发布的内容。</p>
 <!-- 订阅表单容器 -->
+<!-- 订阅表单容器 -->
 <div class="followit--follow-form-container" id="email-subscribe-form" attr-a attr-b attr-c attr-d attr-e attr-f>
-  <form action="https://api.follow.it/subscribe?pub=YDgVmI6K0mm9l1_CRzUY_g" method="post" target="_blank">
-    <div class="form-content">
-      <div class="form-header">
-        <h2>订阅本站文章：</h2>
-        <img src="https://follow.it/static/img/colored-logo.svg" alt="follow.it" class="follow-logo">
+    <form action="https://api.follow.it/subscription-form/UU1USHRiOEdRdVJlU0FxSUgzSFVaVGdsVnAvVDFKZnVQbTI2U2tjMVRFZXJMSXY5TGRxWHdId1kxUWNuUkluWFVEM3ZsYUNkV2xmLzhrVWMwcXpINnFoaTduU291WWRMRE9ndkorL1d6UDhsQkw0bHhPaGZWdkpiSitVZHZ5YXR8VStxZUswUjhuTHRGaUM5Q3N3UURnZmp5bDRlN3lVeDBTTElCQzVPK254WT0=/8" method="post">
+      <div class="form-preview">
+        <div class="form-header">
+          <div class="preview-heading">
+            <h5>订阅本站文章：</h5>
+          </div>
+          <img src="https://follow.it/static/img/colored-logo.svg" alt="follow.it" class="follow-logo">
+        </div>
+        <div class="preview-input-field">
+          <input type="email" name="email" required placeholder="填入您的邮箱地址" spellcheck="false">
+        </div>
+        <div class="preview-submit-button">
+          <button type="submit">确认订阅</button>
+        </div>
       </div>
-      <div class="input-wrapper">
-        <input type="email" name="email" required placeholder="填入您的邮箱地址">
-      </div>
-      <button type="submit" onclick="if(typeof ga !== 'undefined') { ga('send', 'event', 'Form', 'Submit', 'Affiliate'); }">
-        确认订阅
-      </button>
-    </div>
-  </form>
-</div>
-
-<script>
-// 处理平滑滚动
-document.addEventListener('DOMContentLoaded', function() {
-  // 获取邮件订阅卡片
-  const mailCard = document.querySelector('.rss-plan-mail');
-  if (mailCard) {
-    // 阻止默认行为并添加点击事件
-    mailCard.addEventListener('click', function(e) {
-      e.preventDefault();
-      // 获取订阅表单并滚动到其位置
-      const subscribeForm = document.getElementById('email-subscribe-form');
-      if (subscribeForm) {
-        subscribeForm.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        });
-      }
-    });
+    </form>
+  </div>
+  
+  <style>
+  .followit--follow-form-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
   }
-});
-</script>
+  
+  .form-preview {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #eee;
+  }
+  
+  .form-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-header h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+  }
+  
+  .preview-heading h5 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .form-header .follow-logo {
+    align-self: flex-end;
+    margin-top: -1.5rem;
+  }
+  
+  .follow-logo {
+    height: 20px;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+  }
+  
+  .preview-input-field {
+    margin-bottom: 1rem;
+  }
+  
+  .preview-input-field input {
+    width: 100%;
+    height: 48px;
+    padding: 0 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    text-align: center;
+    background: #fff;
+    transition: border-color 0.3s ease;
+  }
+  
+  .preview-input-field input:focus {
+    outline: none;
+    border-color: #666;
+  }
+  
+  .preview-input-field input::placeholder {
+    color: #999;
+  }
+  
+  .preview-submit-button button {
+    width: 100%;
+    height: 48px;
+    background: #2d2d2d;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .preview-submit-button button:hover {
+    background: #000;
+  }
+  
+  @media (max-width: 768px) {
+    .form-preview {
+      padding: 1.5rem;
+    }
+  
+    .preview-heading h5 {
+      font-size: 1.1rem;
+    }
+  
+    .follow-logo {
+      height: 20px;
+    }
+  
+    .preview-input-field input,
+    .preview-submit-button button {
+      height: 42px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form-preview {
+      padding: 1rem;
+    }
+  
+    .form-header {
+      text-align: center;
+    }
+  
+    .form-header .follow-logo {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .follow-logo {
+      display: none;
+    }
+  }
+  </style>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const mailCard = document.querySelector('.rss-plan-mail');
+    if (mailCard) {
+      mailCard.addEventListener('click', function(e) {
+        e.preventDefault();
+        const subscribeForm = document.getElementById('email-subscribe-form');
+        if (subscribeForm) {
+          subscribeForm.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }
+      });
+    }
+  });
+  </script>
 
 
 <h2 id="QQ频道（文章摘要）"><a href="#QQ频道（文章摘要）" class="headerlink" title="QQ频道（文章摘要）"></a><strong>QQ频道（文章摘要）</strong></h2><p>通过 QQ 频道，您可以接收文章订阅通知。在 QQ 频道的 博客更新 更新提醒子频道中，您将能够查看最新的博客文章摘要。该子频道的消息默认开启，加入后将自动接收新博客文章的通知。</p>
