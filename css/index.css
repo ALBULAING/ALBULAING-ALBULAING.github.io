@@ -12562,7 +12562,7 @@ div.timenode:hover .meta:after {
   background: var(--efu-card-bg);
 }
 .post #post-comment {
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 #post-comment > div.comment-head > div.comment-privacy {
   display: block;
