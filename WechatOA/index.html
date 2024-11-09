@@ -24,7 +24,6 @@
           <img class="wechat-need-reply-copybtn-img" alt="copy" src="/img/copy.png">
         </div>
         <span class="wechat-need-reply-back" id="wechat-need-reply-back">即可获取资源</span>
-  
       </div>
       <div class="wechat-card">
         <img src="https://ooo.0x0.ooo/2024/10/22/ODd1OI.jpg" class="qrcode" alt="qrcode">
@@ -43,27 +42,28 @@
       <a class="footer-item" href="https://github.com/zhheo/Wechat-Official-Account-Web" title="Powered by 张洪Heo" target="_blank">主题</a>
       <a class="footer-item" id="web-beian" href="https://beian.miit.gov.cn/#/Integrated/index" title="博客" target="_blank">阿凉の杂货铺</a>
     </div>
-
   </div>
   <script>
-  const oa_name = "科技阿凉";
-const oa_description = "分享设计与科技生活";
-const web_beian = "阿凉の杂货铺";
+    // 定义常量
+    const oa_name = "科技阿凉";
+    const oa_description = "分享设计与科技生活";
+    const web_beian = "阿凉の杂货铺";
 
-function replaceText(elementId, newText) {
-  var element = document.getElementById(elementId);
-  if (element) {
-      element.innerText = newText;
-  } else {
-      console.log("Element with ID '" + elementId + "' not found.");
-  }
-}
+    // 定义替换文本内容的函数
+    function replaceText(elementId, newText) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.innerText = newText;
+      } else {
+        console.log(`Element with ID '${elementId}' not found.`);
+      }
+    }
 
-replaceText('wechatOA-name', oa_name);
-replaceText('wechatOA-description', oa_description)
-replaceText('web-beian', web_beian)
+    // 调用函数替换文本内容
+    replaceText('wechatOA-name', oa_name);
+    replaceText('wechatOA-description', oa_description);
+    replaceText('web-beian', web_beian);
   </script>
-  
   <script src="https://fastly.jsdelivr.net/gh/ALBULAING/WebStatic@1.0.0/Wechat-Official-Account-Web/main.js"></script>
 </body>
 </html>
